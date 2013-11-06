@@ -1,0 +1,19 @@
+{
+  "name": "forafriendbot",
+  "version": "0.0.0",
+  "description": "Asking for a friend...",
+  "author": "Matthew Rothenberg <mroth@mroth.info> (http://mroth.info)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "twit": "~1.1.11",
+    "twitter-text": "~1.6.1",
+    "coffee-script": "~1.6.3",
+    "sugar": "~1.4.1",
+    "colors": "~0.6.2"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

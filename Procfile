@@ -1,0 +1,1 @@
+main: coffee main.coffee
