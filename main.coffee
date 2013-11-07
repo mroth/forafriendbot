@@ -6,8 +6,8 @@ TweetWrapper = require('./lib/tweet_wrapper')
 T = new Twit(
   consumer_key:         process.env.CONSUMER_KEY
   consumer_secret:      process.env.CONSUMER_SECRET
-  access_token:         process.env.OAUTH_TOKEN
-  access_token_secret:  process.env.OAUTH_TOKEN_SECRET
+  access_token:         process.env.ACCESS_TOKEN
+  access_token_secret:  process.env.ACCESS_TOKEN_SECRET
 )
 
 stream = T.stream('statuses/filter', { track: 'asking for a friend' })
