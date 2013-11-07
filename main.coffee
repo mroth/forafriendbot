@@ -37,6 +37,11 @@ stream.on 'tweet', (tweet) ->
     if limiter.okayToTweet()
       console.log "TWEETING!".blue
       limiter.set()
+      T.post 'statuses/update', { status: tweet.text }, (err, reply) ->
+        if !err?
+          console.log " ...posted successfully as #{reply.id}".blue
+        else
+          console.log err
     else
       console.log "not tweeting because of limit...".blue
 
