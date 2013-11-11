@@ -24,6 +24,7 @@ stream.on 'tweet', (tweet) ->
     when tw.isRetweet()         then "IS RETWEET"
     when tw.isReply()           then "IS REPLY"
     when tw.containsMentions()  then "CONTAINS MENTION(S)"
+    when tw.containsLinks()     then "CONTAINS LINK(S)"
     else null
   if disqualified?
     console.log "DISQUALIFIED - #{disqualified}".red
@@ -46,4 +47,3 @@ stream.on 'tweet', (tweet) ->
           console.log err
     else
       console.log "not tweeting because of limit...".blue
-

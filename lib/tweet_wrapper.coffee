@@ -13,4 +13,7 @@ class TweetWrapper
   containsMentions: ->
     Tt.extractMentions(@tweet.text).length > 0
 
+  containsLinks: ->
+    @tweet.entities.urls.length > 0
+
 module.exports = TweetWrapper
