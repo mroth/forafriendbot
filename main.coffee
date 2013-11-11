@@ -34,9 +34,7 @@ stream.on 'tweet', (tweet) ->
   console.log "MATCHED!".green if match?
   console.log "NO match!".yellow unless match?
 
-  fs = require('fs')
   if match?
-    fs.appendFileSync('tweetlog.txt', new Date().toTimeString() + ":\n" + tweet.text + "\n\n")
     if limiter.okayToTweet()
       console.log "TWEETING!".blue
       limiter.set()
