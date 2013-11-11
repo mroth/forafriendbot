@@ -10,7 +10,9 @@ T = new Twit(
   access_token:         process.env.ACCESS_TOKEN
   access_token_secret:  process.env.ACCESS_TOKEN_SECRET
 )
-limiter = new TweetLimiter(600)
+limit = process.env.LIMIT || 3600
+console.log "Limiting posting with limiter of #{limit} seconds..."
+limiter = new TweetLimiter(limit)
 
 stream = T.stream('statuses/filter', { track: 'asking for a friend' })
 
