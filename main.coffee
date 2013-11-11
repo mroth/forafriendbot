@@ -1,8 +1,7 @@
-Sugar = require('sugar')
-Colors = require('colors')
-Twit = require('twit')
-TweetWrapper = require('./lib/tweet_wrapper')
-TweetLimiter = require('./lib/tweet_limiter')
+Colors        = require('colors')
+Twit          = require('twit')
+TweetWrapper  = require('./lib/tweet_wrapper')
+TweetLimiter  = require('./lib/tweet_limiter')
 
 T = new Twit(
   consumer_key:         process.env.CONSUMER_KEY
@@ -31,17 +30,13 @@ stream.on 'tweet', (tweet) ->
     return false
 
   match = (/(^.*\?)\s+(?:I'm |I am )?asking for a .*friend/i).exec tweet.text
-  console.log "MATCHED!".green if match?
-  console.log "NO match!".yellow unless match?
+  console.log( if match? then "MATCHED!".green else "NO match!".yellow )
 
   if match?
     if limiter.okayToTweet()
-      console.log "TWEETING!".blue
       limiter.set()
+      console.log "TWEETING!".blue
       T.post 'statuses/update', { status: tweet.text }, (err, reply) ->
-        if !err?
-          console.log " ...posted successfully as #{reply.id}".blue
-        else
-          console.log err
+        console.log(err || " ...posted successfully as #{reply.id}".blue)
     else
       console.log "not tweeting because of limit...".blue
