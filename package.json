@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "twit": "~1.1.11",
-    "twitter-text": "~1.6.1",
     "coffee-script": "~1.6.3",
     "sugar": "~1.4.1",
     "colors": "~0.6.2"

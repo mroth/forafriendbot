@@ -1,5 +1,4 @@
 require('sugar')
-Tt = require('twitter-text')
 
 class TweetWrapper
   constructor: (@tweet) ->
@@ -11,7 +10,7 @@ class TweetWrapper
     @tweet.text.startsWith("@")
 
   containsMentions: ->
-    Tt.extractMentions(@tweet.text).length > 0
+    @tweet.entities.user_mentions.length > 0
 
   containsLinks: ->
     @tweet.entities.urls.length > 0
